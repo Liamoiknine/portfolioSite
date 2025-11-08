@@ -1,17 +1,17 @@
 import React, { useState } from 'react'
 import Typewriter from 'typewriter-effect'
-import CollapseButton from './CollapseButton'
 
-function Intro({ onClick, isExpanded, onCollapse }) {
+function Intro() {
   const [showH4, setShowH4] = useState(false)
   const [hideH4, setHideH4] = useState(false)
   const [showP1, setShowP1] = useState(false)
   const [showP2, setShowP2] = useState(false)
   const [showP3, setShowP3] = useState(false)
+  const [allDone, setAllDone] = useState(false)
 
   return (
     <div 
-      className="intro"
+      className={`intro ${allDone ? 'slide-up' : ''}`}
     >
       <h1>
         <Typewriter
@@ -24,6 +24,7 @@ function Intro({ onClick, isExpanded, onCollapse }) {
               .start()
           }}
           options={{
+            delay: 50,
             cursor: '',
           }}
         />
@@ -34,7 +35,7 @@ function Intro({ onClick, isExpanded, onCollapse }) {
             onInit={(typewriter) => {
               typewriter
                 .typeString("Nice typing animation, right?")
-                .pauseFor(1000)
+                .pauseFor(800)
                 .deleteAll()
                 .callFunction(() => {
                   setHideH4(true)
@@ -43,7 +44,7 @@ function Intro({ onClick, isExpanded, onCollapse }) {
                 .start()
             }}
             options={{
-              delay: 50,
+              delay: 10,
               cursor: '',
             }}
           />
@@ -61,7 +62,7 @@ function Intro({ onClick, isExpanded, onCollapse }) {
                 .start()
             }}
             options={{
-              delay: 30,
+              delay: 10,
               cursor: '',
             }}
           />
@@ -79,7 +80,7 @@ function Intro({ onClick, isExpanded, onCollapse }) {
                 .start()
             }}
             options={{
-              delay: 30,
+              delay: 10,
               cursor: '',
             }}
           />
@@ -91,15 +92,23 @@ function Intro({ onClick, isExpanded, onCollapse }) {
             onInit={(typewriter) => {
               typewriter
                 .typeString("I'm also good at cooking, awful at sleeping, and consistently confused about the meaning of life.")
+                .callFunction(() => {
+                  setAllDone(true)
+                })
                 .start()
             }}
             options={{
-              delay: 30,
+              delay: 10,
               cursor: '',
             }}
           />
         </p>
       )}
+      {allDone && <div className="content-separator"></div>}
+      {allDone && <div className="additional-content">
+        <p>I'm currently building software and product at Status Health, a healthtech startup in St. Louis</p>
+        <p>I'm also heavily involved in the Urano Research Lab here at WashU, where I've focused on genetics research and more recently intervention software dev.</p>
+      </div>}
     </div>
   )
 }

@@ -14,37 +14,13 @@
     background-color: rgba(255, 255, 255, 0.05);
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 8px;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(2, 1fr);
+    position: relative;
     overflow-y: scroll;
-    align-items: stretch;
-    justify-items: stretch;
-    gap: 0;
-    position: relative;
-    transition: grid-template-columns 0.3s ease, grid-template-rows 0.3s ease;
-}
-
-.main-card.expanded {
-    grid-template-columns: 1fr;
-    grid-template-rows: 1fr;
-    border: none;
-    overflow: hidden;
-}
-
-.project {
-    width: 100%;
-    height: 100%;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    transition: grid-column 0.3s ease, grid-row 0.3s ease, opacity 0.3s ease;
-    position: relative;
-    box-sizing: border-box;
 }
 
 .intro {
-    width: 100%;
+    width: 35%;
     height: 100%;
-    transition: grid-column 0.3s ease, grid-row 0.3s ease, opacity 0.3s ease;
     position: relative;
     box-sizing: border-box;
     display: flex;
@@ -53,7 +29,13 @@
     justify-content: center;
     gap: 20px;
     text-align: left;
-    padding: 10px 50px;
+    margin-top: 8rem;
+    margin-left: 8rem;
+    transition: transform 1s ease;
+}
+
+.intro.slide-up {
+    transform: translateY(-2.5rem);
 }
 
 .intro h1,
@@ -63,20 +45,32 @@
     width: 100%;
 }
 
-.main-card.expanded .project:not(.expanded) {
-    opacity: 0;
-    pointer-events: none;
-    visibility: hidden;
+.content-separator {
+    width: 100%;
+    height: 1px;
+    background-color: rgba(255, 255, 255, 0.2);
+    margin: 1rem 0 1rem 0;
 }
 
-.project.expanded {
-    grid-column: 1 / -1;
-    grid-row: 1 / -1;
-    z-index: 10;
-    border-radius: 8px;
-    border: none !important;
-    outline: none !important;
-    box-shadow: none !important;
+.additional-content {
+    width: 100%;
+    opacity: 0;
+    animation: fadeIn 2.8s ease forwards;
+}
+
+.additional-content p {
+    text-align: left;
+    width: 100%;
+    margin: 0 0 1rem 0;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
 }
 
 .collapse-button {
