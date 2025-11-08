@@ -1,0 +1,30 @@
+{
+  "name": "portfolio-site",
+  "version": "1.0.0",
+  "description": "Liam Oiknine's portfolio website",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "keywords": [
+    "portfolio",
+    "website"
+  ],
+  "author": "Liam Oiknine",
+  "license": "MIT",
+  "dependencies": {
+    "p5": "^1.7.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "typewriter-effect": "^2.22.0",
+    "vanta": "^0.5.24"
+  },
+  "devDependencies": {
+    "@types/react": "^18.2.43",
+    "@types/react-dom": "^18.2.17",
+    "@vitejs/plugin-react": "^4.2.1",
+    "vite": "^5.0.8"
+  }
+}
