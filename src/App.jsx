@@ -1,9 +1,9 @@
 import React, { useState, useRef, useEffect } from 'react'
-import Nav from './components/Nav'
-import Footer from './components/Footer'
-import Intro from './components/Intro'
-import Projects from './components/Projects'
-import Experience from './components/Experience'
+import Nav from './components/Nav.jsx'
+import Footer from './components/Footer.jsx'
+import Intro from './components/Intro.jsx'
+import Projects from './components/Projects.jsx'
+import Experience from './components/Experience.jsx'
 import './App.css'
 
 function App() {
