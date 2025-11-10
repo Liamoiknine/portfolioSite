@@ -1,114 +1,133 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import Typewriter from 'typewriter-effect'
 
-function Intro() {
-  const [showH4, setShowH4] = useState(false)
-  const [hideH4, setHideH4] = useState(false)
+function Intro({ hasAnimatedRef }) {
   const [showP1, setShowP1] = useState(false)
   const [showP2, setShowP2] = useState(false)
   const [showP3, setShowP3] = useState(false)
   const [allDone, setAllDone] = useState(false)
+  const animationStartedRef = useRef(false)
+
+  useEffect(() => {
+    if (hasAnimatedRef.current) {
+      // Animation already played, show final state immediately - no transitions
+      setShowP1(true)
+      setShowP2(true)
+      setShowP3(true)
+      setAllDone(true)
+      animationStartedRef.current = false // Reset since animation is complete
+    }
+    
+    // Cleanup: if component unmounts while animation is in progress, fast-forward
+    return () => {
+      if (animationStartedRef.current && !hasAnimatedRef.current) {
+        hasAnimatedRef.current = true
+      }
+    }
+  }, [hasAnimatedRef])
 
   return (
     <div 
-      className={`intro ${allDone ? 'slide-up' : ''}`}
+      className={`intro ${(allDone || hasAnimatedRef.current) ? 'slide-up' : ''} ${hasAnimatedRef.current ? 'locked' : ''}`}
     >
-      <h1>
-        <Typewriter
-          onInit={(typewriter) => {
-            typewriter
-              .typeString("What's up, I'm Liam")
-              .callFunction(() => {
-                setShowH4(true)
-              })
-              .start()
-          }}
-          options={{
-            delay: 50,
-            cursor: '',
-          }}
-        />
-      </h1>
-      {showH4 && !hideH4 && (
-        <h4>
+      <h1 className={hasAnimatedRef.current ? 'hidden' : ''}>
+        {hasAnimatedRef.current ? (
+          "What's up, I'm Liam"
+        ) : (
           <Typewriter
             onInit={(typewriter) => {
+              animationStartedRef.current = true
               typewriter
-                .typeString("Nice typing animation, right?")
-                .pauseFor(800)
-                .deleteAll()
+                .typeString("What's up, I'm Liam")
                 .callFunction(() => {
-                  setHideH4(true)
                   setShowP1(true)
                 })
                 .start()
             }}
             options={{
-              delay: 10,
+              delay: 30,
               cursor: '',
             }}
           />
-        </h4>
-      )}
+        )}
+      </h1>
       {showP1 && (
         <p>
-          <Typewriter
-            onInit={(typewriter) => {
-              typewriter
-                .typeString("I'm a third-year undergrad at WashU, studying <u>Computer Science</u> and <u>Physics</u> and playing on the <u>Men's Soccer Team</u>.")
-                .callFunction(() => {
-                  setShowP2(true)
-                })
-                .start()
-            }}
-            options={{
-              delay: 10,
-              cursor: '',
-            }}
-          />
+          {hasAnimatedRef.current ? (
+            <>I'm a third-year undergrad at WashU, studying <u>Computer Science</u> and <u>Physics</u> and playing on the <u>Men's Soccer Team</u>.</>
+          ) : (
+            <Typewriter
+              onInit={(typewriter) => {
+                typewriter
+                  .typeString("I'm a third-year undergrad at WashU, studying <u>Computer Science</u> and <u>Physics</u> and playing on the <u>Men's Soccer Team</u>.")
+                  .callFunction(() => {
+                    setShowP2(true)
+                  })
+                  .start()
+              }}
+              options={{
+                delay: 20,
+                cursor: '',
+              }}
+            />
+          )}
         </p>
       )}
       {showP2 && (
         <p>
-          <Typewriter
-            onInit={(typewriter) => {
-              typewriter
-                .typeString("Currently interested in technology and opportunity across any domain. Mostly just want to work hard, solve real problems, and learn.")
-                .callFunction(() => {
-                  setShowP3(true)
-                })
-                .start()
-            }}
-            options={{
-              delay: 10,
-              cursor: '',
-            }}
-          />
+          {hasAnimatedRef.current ? (
+            "Currently interested in technology and opportunity across any domain. Mostly just want to work hard, solve real problems, and learn."
+          ) : (
+            <Typewriter
+              onInit={(typewriter) => {
+                typewriter
+                  .typeString("Currently interested in technology and opportunity across any domain. Mostly just want to work hard, solve real problems, and learn.")
+                  .callFunction(() => {
+                    setShowP3(true)
+                  })
+                  .start()
+              }}
+              options={{
+                delay: 20,
+                cursor: '',
+              }}
+            />
+          )}
         </p>
       )}
       {showP3 && (
         <p>
-          <Typewriter
-            onInit={(typewriter) => {
-              typewriter
-                .typeString("I'm also good at cooking, awful at sleeping, and consistently confused about the meaning of life.")
-                .callFunction(() => {
-                  setAllDone(true)
-                })
-                .start()
-            }}
-            options={{
-              delay: 10,
-              cursor: '',
-            }}
-          />
+          {hasAnimatedRef.current ? (
+            "I'm also good at cooking, awful at sleeping, and consistently confused about the meaning of life."
+          ) : (
+            <Typewriter
+              onInit={(typewriter) => {
+                typewriter
+                  .typeString("I'm also good at cooking, awful at sleeping, and consistently confused about the meaning of life.")
+                  .callFunction(() => {
+                    setAllDone(true)
+                    // Delay setting the ref to allow animations to complete
+                    setTimeout(() => {
+                      hasAnimatedRef.current = true
+                    }, 2500) // 1.5s slide-up + 0.8s h1 fade + buffer
+                  })
+                  .start()
+              }}
+              options={{
+                delay: 20,
+                cursor: '',
+              }}
+            />
+          )}
         </p>
       )}
-      {allDone && <div className="content-separator"></div>}
-      {allDone && <div className="additional-content">
-        <p>I'm currently building software and product at Status Health, a healthtech startup in St. Louis</p>
-        <p>I'm also heavily involved in the Urano Research Lab here at WashU, where I've focused on genetics research and more recently intervention software dev.</p>
-      </div>}
+      {(allDone || hasAnimatedRef.current) && <div className="content-separator"></div>}
+      {(allDone || hasAnimatedRef.current) && (
+        <div className={`additional-content ${hasAnimatedRef.current ? 'visible' : ''}`}>
+          <p>I'm currently building software and product at <a href="https://www.statushealth.co/" target="_blank"><u>Status Health</u></a>, a healthtech startup in St. Louis</p>
+          <p>I'm also heavily involved in the <a href="https://endocrinology.wustl.edu/items/urano-lab/" target="_blank"><u>Urano Research Lab</u></a> here at WashU, where I've focused on genetics research and more recently intervention software dev.</p>
+        </div>
+      )}
     </div>
   )
 }

@@ -1,25 +1,29 @@
 .app-container {
-    min-height: 100vh;
+    min-height: 95vh;
     display: flex;
     flex-direction: column;
     padding: 20px;
     padding-bottom: 0;
     align-items: center;
+    margin-top: 1.5rem;
 }
 
 .main-card {
     flex: 1;
-    width: 100%;
+    width: 90%;
     height: calc(100vh - 120px);
-    background-color: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    min-height: calc(100vh - 120px);
+    max-height: calc(100vh - 120px);
+    background-color: rgba(255, 255, 255, 0.017);
+    border: 1px solid rgba(255, 255, 255, 0.034);
     border-radius: 8px;
     position: relative;
-    overflow-y: scroll;
+    overflow-y: auto;
+    overflow-x: hidden;
 }
 
 .intro {
-    width: 35%;
+    width: 32%;
     height: 100%;
     position: relative;
     box-sizing: border-box;
@@ -31,31 +35,65 @@
     text-align: left;
     margin-top: 8rem;
     margin-left: 8rem;
-    transition: transform 1s ease;
+    padding-bottom: 4rem;
+    transition: transform 1.5s ease;
 }
 
 .intro.slide-up {
-    transform: translateY(-2.5rem);
+    transform: translateY(-4rem);
 }
 
-.intro h1,
+.intro.locked {
+    transition: none;
+}
+
+.intro h1 {
+    text-align: left;
+    width: 100%;
+    font-weight: 200;
+    opacity: 1;
+    transition: opacity 0.8s ease;
+}
+
+.intro.slide-up h1:not(.hidden) {
+    opacity: 0;
+}
+
+.intro.locked h1 {
+    transition: none;
+}
+
+.intro.slide-up.locked h1.hidden {
+    opacity: 0;
+}
+
 .intro h4,
 .intro p {
     text-align: left;
     width: 100%;
+    font-weight: 200;
 }
 
 .content-separator {
     width: 100%;
     height: 1px;
     background-color: rgba(255, 255, 255, 0.2);
-    margin: 1rem 0 1rem 0;
+    margin: 0.5rem 0 0.5rem 0;
 }
 
 .additional-content {
     width: 100%;
     opacity: 0;
-    animation: fadeIn 2.8s ease forwards;
+    animation: fadeIn 0.8s ease 1.5s forwards;
+}
+
+.additional-content.visible {
+    opacity: 1;
+    animation: none;
+}
+
+.intro h1.hidden {
+    opacity: 0;
 }
 
 .additional-content p {
@@ -98,7 +136,7 @@
     justify-content: space-between;
     align-items: center;
     padding: 20px 0;
-    width: 98%;
+    width: 88%;
     margin-bottom: 20px;
 }
 
@@ -120,16 +158,29 @@
     color: #FFFFFF;
 }
 
+.nav-list a.resume-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 2px;
+}
+
+.nav-list a.resume-link .arrow-icon {
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 2px;
+    font-size: 0.75rem;
+}
+
 .footer {
     display: flex;
     align-items: center;
-    gap: 20px;
+    gap: 30px;
 }
 
 .footer-list {
     display: flex;
     list-style: none;
-    gap: 20px;
+    gap: 30px;
     margin: 0;
     padding: 0;
 }
@@ -143,4 +194,228 @@
 .footer-list a:hover {
     color: #FFFFFF;
 }
+
+/* Projects Styles */
+.projects {
+    width: 45%;
+    position: relative;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 1.5rem;
+    text-align: left;
+    margin-top: 4rem;
+    margin-left: 8rem;
+    padding-bottom: 4rem;
+}
+
+.project-item {
+    width: 100%;
+}
+
+.project-link {
+    text-decoration: none;
+    color: inherit;
+    display: inline-block;
+    margin-bottom: 0.5rem;
+}
+
+.project-title {
+    font-weight: 400;
+    color: #FFFFFF;
+    margin: 0;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    transition: color 0.2s ease;
+}
+
+.project-link:hover .project-title {
+    color: #CCCCCC;
+}
+
+.project-arrow {
+    font-size: 0.875rem;
+    vertical-align: middle;
+}
+
+.project-description {
+    font-size: 0.95rem;
+    font-weight: 200;
+    color: #CCCCCC;
+    line-height: 1.6;
+    margin: 0;
+    margin-bottom: 0.5rem;
+}
+
+.project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0;
+    margin-top: 0.5rem;
+}
+
+.project-tag {
+    font-size: 0.75rem;
+    font-weight: 300;
+    color: #888888;
+}
+
+.project-separator {
+    font-size: 0.75rem;
+    font-weight: 300;
+    color: #888888;
+    margin-left: 0.5rem;
+}
+
+.project-date {
+    font-size: 0.75rem;
+    font-weight: 300;
+    color: #888888;
+    margin-left: 0.5rem;
+}
+
+.nav-list a.active {
+    color: #FFFFFF;
+    font-weight: 400;
+}
+
+/* Experience Styles */
+.experience {
+    width: 75%;
+    position: relative;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    text-align: left;
+    margin-top: 4rem;
+    margin-left: 8rem;
+    padding-bottom: 4rem;
+}
+
+.experience-toggle {
+    margin-bottom: 2.5rem;
+}
+
+.toggle-container {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    position: relative;
+}
+
+.toggle-separator {
+    width: 1px;
+    height: 1rem;
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.toggle-button {
+    background: none;
+    border: none;
+    color: #666666;
+    font-size: 0.95rem;
+    font-weight: 300;
+    padding: 0;
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.toggle-button:hover {
+    color: #AAAAAA;
+}
+
+.toggle-button.active {
+    color: #FFFFFF;
+}
+
+.experience-list {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+.experience-item {
+    width: 100%;
+    padding-bottom: 2.5rem;
+}
+
+.experience-content {
+    width: 100%;
+}
+
+.experience-title-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 0.75rem;
+    gap: 2rem;
+}
+
+.experience-entry-title {
+    font-size: 1.25rem;
+    font-weight: 400;
+    color: #FFFFFF;
+    margin: 0;
+    flex: 1;
+    line-height: 1.4;
+}
+
+.title-separator {
+    color: #888888;
+    margin: 0 0.25rem;
+}
+
+.experience-role {
+    font-weight: 300;
+    color: #AAAAAA;
+}
+
+.experience-date {
+    font-size: 1rem;
+    font-weight: 300;
+    color: #CCCCCC;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.experience-entry-description {
+    font-size: 0.95rem;
+    font-weight: 200;
+    color: #CCCCCC;
+    line-height: 1.6;
+    margin: 0 0 0.75rem 0;
+}
+
+.experience-metadata {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0;
+}
+
+.experience-meta {
+    font-size: 0.75rem;
+    font-weight: 300;
+    color: #888888;
+}
+
+.meta-separator {
+    color: #888888;
+    margin: 0 0.25rem;
+}
+
+.experience-separator {
+    width: 100%;
+    height: 1px;
+    background-color: rgba(255, 255, 255, 0.1);
+    margin-top: 1.5rem;
+}
+
 
