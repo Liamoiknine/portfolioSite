@@ -20,6 +20,8 @@
     position: relative;
     overflow-y: auto;
     overflow-x: hidden;
+    /* Ensure background layers work properly */
+    isolation: isolate;
 }
 
 .intro {
