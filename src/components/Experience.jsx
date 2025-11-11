@@ -43,6 +43,14 @@ function Experience() {
       metadata: ["Being a teammate", "Grinding through setbacks"],
       date: "Fall 2023-Present",
       category: "other"
+    },
+    {
+      title: "WashU Rocketry Team",
+      role: "Embedded Software Dev",
+      description: "Our competition objective was to measure 8 data points during and after our rocket's flight. My team and designed as system of sensors, and wrote a python telemetry system to control every aspect of the payload's execution.",
+      metadata: ["Firmware", "Design & Testing"],
+      date: "Fall 2024",
+      category: "other"
     }
   ]
 
