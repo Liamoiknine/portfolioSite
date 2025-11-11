@@ -54,12 +54,12 @@ function Intro({ hasAnimatedRef }) {
       {showP1 && (
         <p>
           {hasAnimatedRef.current ? (
-            <>I'm a third-year undergrad at WashU, studying <u>Computer Science</u> and <u>Physics</u> and playing on the <u>Men's Soccer Team</u>.</>
+            <>I'm a third-year undergrad at WashU, studying <span className="bold-text">Computer Science</span> and <span className="bold-text">Physics</span> and playing on the <span className="bold-text">Men's Soccer Team</span>.</>
           ) : (
             <Typewriter
               onInit={(typewriter) => {
                 typewriter
-                  .typeString("I'm a third-year undergrad at WashU, studying <u>Computer Science</u> and <u>Physics</u> and playing on the <u>Men's Soccer Team</u>.")
+                  .typeString("I'm a third-year undergrad at WashU, studying <span class='bold-text'>Computer Science</span> and <span class='bold-text'>Physics</span> and playing on the <span class='bold-text'>Men's Soccer Team</span>.")
                   .callFunction(() => {
                     setShowP2(true)
                   })

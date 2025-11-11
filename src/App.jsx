@@ -101,6 +101,7 @@ function App() {
             minWidth: 200.00,
             scale: 1.00,
             scaleMobile: 1.00,
+            speed: 3.0,
             color: colors[0],
             backgroundColor: 0x0e0e25
           })
@@ -110,7 +111,7 @@ function App() {
               currentColorIndex = (currentColorIndex + 1) % colors.length
               vantaEffect.current.setOptions({ color: colors[currentColorIndex] })
             }
-          }, 5000)
+          }, 2000)
         } catch (error) {
           console.error('Error initializing Vanta:', error)
         }
@@ -248,14 +249,18 @@ function App() {
         top: `${cardBounds.top}px`,
         left: `${cardBounds.left}px`,
         width: `${cardBounds.width}px`,
-        height: `${cardBounds.height}px`
+        height: `${cardBounds.height}px`,
+        borderRadius: '16px',
+        overflow: 'hidden'
       }
     : {
         position: 'fixed',
         top: '0px',
         left: '0px',
         width: '100%',
-        height: '100%'
+        height: '100%',
+        borderRadius: '16px',
+        overflow: 'hidden'
       }
 
   return (

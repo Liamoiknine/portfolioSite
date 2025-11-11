@@ -9,7 +9,7 @@ function Projects() {
     {
       title: "Status Health",
       description: "Translating mass spec output of chemical exposures into digestable agentized database for paid users",
-      tags: ["Active", "Work"],
+      tags: ["Active", "Work", "Launching Soon"],
       date: "Fall 2025",
       category: "active",
       link: "https://www.statushealth.co/"
