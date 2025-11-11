@@ -1,5 +1,6 @@
 .app-container {
     min-height: 95vh;
+    min-height: 95dvh;
     display: flex;
     flex-direction: column;
     padding: 20px;
@@ -12,8 +13,11 @@
     flex: 1;
     width: 90%;
     height: calc(100vh - 120px);
+    height: calc(100dvh - 120px);
     min-height: calc(100vh - 120px);
+    min-height: calc(100dvh - 120px);
     max-height: calc(100vh - 120px);
+    max-height: calc(100dvh - 120px);
     background-color: rgba(255, 255, 255, 0.017);
     border: 1px solid rgba(255, 255, 255, 0.034);
     border-radius: 16px;
@@ -445,8 +449,11 @@
     .main-card {
         width: 100%;
         height: calc(100vh - 80px);
+        height: calc(100dvh - 80px);
         min-height: calc(100vh - 80px);
+        min-height: calc(100dvh - 80px);
         max-height: calc(100vh - 80px);
+        max-height: calc(100dvh - 80px);
     }
 
     .intro {
@@ -526,8 +533,11 @@
 
     .main-card {
         height: calc(100vh - 60px);
+        height: calc(100dvh - 60px);
         min-height: calc(100vh - 60px);
+        min-height: calc(100dvh - 60px);
         max-height: calc(100vh - 60px);
+        max-height: calc(100dvh - 60px);
     }
 
     .intro {
