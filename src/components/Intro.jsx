@@ -125,7 +125,7 @@ function Intro({ hasAnimatedRef }) {
       {(allDone || hasAnimatedRef.current) && (
         <div className={`additional-content ${hasAnimatedRef.current ? 'visible' : ''}`}>
           <p>I'm currently building software and product at <a href="https://www.statushealth.co/" target="_blank"><u>Status Health</u></a>, a healthtech startup in St. Louis</p>
-          <p>I'm also heavily involved in the <a href="https://endocrinology.wustl.edu/items/urano-lab/" target="_blank"><u>Urano Research Lab</u></a> here at WashU, where I've focused on genetics research and more recently intervention software dev.</p>
+          <p>I'm also heavily involved in the <a href="https://endocrinology.wustl.edu/items/urano-lab/" target="_blank"><u>Urano Research Lab</u></a> here at WashU, where I've focused on genetics research and more recently intervention software.</p>
         </div>
       )}
     </div>
