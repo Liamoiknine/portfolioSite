@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react'
 import * as THREE from 'three'
+import { Analytics } from '@vercel/analytics/react'
 import Nav from './components/Nav.jsx'
 import Footer from './components/Footer.jsx'
 import Intro from './components/Intro.jsx'
@@ -297,6 +298,7 @@ function App() {
         <Nav setActiveSection={setActiveSection} activeSection={activeSection} />
         <Footer />
       </div>
+      <Analytics />
     </div>
   )
 }
