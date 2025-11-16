@@ -7,8 +7,8 @@ function Experience() {
     {
       title: "Status Health",
       role: "Product",
-      description: "Leading and solo engineering the user portal for understanding chemical exposure test results. Lots of dataprocessing and pipeline building, organization, planning, ande design.",
-      metadata: ["Startup Vibes", "Ideating", "Vibing"],
+      description: "Leading and solo engineering the user portal for understanding chemical exposure test results. Lots of data processing and pipeline building, organization, planning, and design.",
+      metadata: ["Designing Product", "Vibing"],
       date: "Fall 2025-Present",
       category: "professional"
     },
@@ -24,14 +24,14 @@ function Experience() {
       title: "Aiode",
       role: "Software Dev",
       description: "Built CLI pipeline to navigate database and funnel groups of audio clips through LLMs, analyzing muscial features like instrument-type, dynamics, fills, and complexity.",
-      metadata: ["Startup Vibes", "Becoming Israeli", "Understanding Music", "Talking About Food"],
+      metadata: ["Becoming Israeli", "Understanding Music", "Talking About Food"],
       date: "Summer 2025",
       category: "professional"
     },
     {
       title: "Machine Learning Reading Group",
       role: "Organizer",
-      description: "Started a machine learning group and recruited some friends to join. We read 1-2 ML papers per week (foundational or frontier) and meet on Sundays to discuss our thoughts and ideas about the content and its implications on thefuture",
+      description: "Started a machine learning group and recruited some friends to join. We read 1-2 ML papers per week (foundational or frontier) and meet on Sundays to discuss our thoughts and ideas about the content and its implications on the future",
       metadata: ["Scheming", "Learning more than in class", "Getting inspired"],
       date: "Fall 2025",
       category: "other"
@@ -47,7 +47,7 @@ function Experience() {
     {
       title: "WashU Rocketry Team",
       role: "Embedded Software Dev",
-      description: "Our competition objective was to measure 8 data points during and after our rocket's flight. My team and designed as system of sensors, and wrote a python telemetry system to control every aspect of the payload's execution.",
+      description: "Our competition objective was to measure 8 data points during and after our rocket's flight. My team and I designed a system of sensors and wrote a python telemetry system to control every aspect of the payload's execution.",
       metadata: ["Firmware", "Design & Testing"],
       date: "Fall 2024",
       category: "other"

@@ -55,6 +55,14 @@ function Projects() {
       link: ""
     },
     {
+      title: "Nag Me",
+      description: "Built accountability service to call me during study periods and keep me on track. Used Twilio, Whisper trancription, and GPT for generating responses.",
+      tags: ["Complete", "Personal"],
+      date: "Fall 2025",
+      category: "completed",
+      link: "https://github.com/Liamoiknine/nag-me"
+    },
+    {
       title: "Wolfram Severity Scoring System",
       description: "Analyzed genotype-phenotype data to construct 6-point severity scoring system, segmenting patietns into statiscally significant low, medium, and high severity groups",
       tags: ["Complete", "Research"],
@@ -73,14 +81,6 @@ function Projects() {
       date: "Fall 2025",
       category: "completed",
       link: "https://chatgpt.com/g/g-p-68faf2f3fc08819198fbf6558df79a63-impedix-patent/project"
-    },
-    {
-      title: "Nag Me",
-      description: "Built accountability service to call me during study periods and keep me on track. Used Twilio, Whisper trancription, and GPT for generating responses.",
-      tags: ["Complete", "Personal"],
-      date: "Fall 2025",
-      category: "completed",
-      link: "https://github.com/Liamoiknine/nag-me"
     }
   ]
 
