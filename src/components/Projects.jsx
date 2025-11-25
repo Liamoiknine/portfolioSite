@@ -27,8 +27,16 @@ function Projects() {
       description: "Fine tuning model to behave like Tony Soprano, containerized with Docker and manged with Kubernetes",
       tags: ["In-Progress", "Class"],
       date: "Fall 2025",
-      category: "in-pipeline",
+      category: "Active",
       link: "https://github.com/Liamoiknine/TheNorthJerseyProject"
+    },
+    {
+      title: "Synthetic Data Generation",
+      description: "Parallelize API calls to enterprise models for repeatable tasks like synthetic data generation for model fine-tuning or structured research over many data points to avoid quality degredation while maintaining speed. Protect against model collapse / duplication with cosine similarity threshold. Host platform as a service, charging elastically for token usage.",
+      tags: ["Coming Soon", "Personal"],
+      date: "Fall 2025",
+      category: "in-pipeline",
+      link: ""
     },
     {
       title: "Wolfram Specific RAG / Tool-enabled LLM",

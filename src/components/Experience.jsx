@@ -7,7 +7,7 @@ function Experience() {
     {
       title: "Status Health",
       role: "Product",
-      description: "Leading and solo engineering the user portal for understanding chemical exposure test results. Lots of data processing and pipeline building, organization, planning, and design.",
+      description: "Leading and solo engineering the user portal for understanding chemical exposure test results. Lots of data processing and pipeline building, organization, planning, ande design.",
       metadata: ["Designing Product", "Vibing"],
       date: "Fall 2025-Present",
       category: "professional"
