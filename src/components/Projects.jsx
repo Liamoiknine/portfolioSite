@@ -27,7 +27,7 @@ function Projects() {
       description: "Fine tuning model to behave like Tony Soprano, containerized with Docker and manged with Kubernetes",
       tags: ["In-Progress", "Class"],
       date: "Fall 2025",
-      category: "Active",
+      category: "active",
       link: "https://github.com/Liamoiknine/TheNorthJerseyProject"
     },
     {
