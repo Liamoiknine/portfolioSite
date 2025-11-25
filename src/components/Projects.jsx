@@ -31,7 +31,7 @@ function Projects() {
       link: "https://github.com/Liamoiknine/TheNorthJerseyProject"
     },
     {
-      title: "Synthetic Data Generation",
+      title: "Synthetic Data + Research at Scale",
       description: "Parallelize API calls to enterprise models for repeatable tasks like synthetic data generation for model fine-tuning or structured research over many data points to avoid quality degredation while maintaining speed. Protect against model collapse / duplication with cosine similarity threshold. Host platform as a service, charging elastically for token usage.",
       tags: ["Coming Soon", "Personal"],
       date: "Fall 2025",
@@ -72,7 +72,7 @@ function Projects() {
     },
     {
       title: "Wolfram Severity Scoring System",
-      description: "Analyzed genotype-phenotype data to construct 6-point severity scoring system, segmenting patietns into statiscally significant low, medium, and high severity groups",
+      description: "Analyzed genotype-phenotype data to construct 6-point severity scoring system, segmenting patients into statiscally significant low, medium, and high severity groups",
       tags: ["Complete", "Research"],
       date: "Summer 2024",
       category: "completed",
