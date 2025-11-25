@@ -72,7 +72,7 @@ function Projects() {
     },
     {
       title: "Wolfram Severity Scoring System",
-      description: "Analyzed genotype-phenotype data to construct 6-point severity scoring system, segmenting patients into statiscally significant low, medium, and high severity groups",
+      description: "Analyzed genotype-phenotype data to construct 6-point severity scoring system, segmenting patients into statistically significant low, medium, and high severity groups",
       tags: ["Complete", "Research"],
       date: "Summer 2024",
       category: "completed",
