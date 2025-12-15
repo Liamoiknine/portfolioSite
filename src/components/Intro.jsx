@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react'
 import Typewriter from 'typewriter-effect'
 
-function Intro({ hasAnimatedRef }) {
+function Intro({ hasAnimatedRef, onSkipButtonStateChange, skipAnimationRef }) {
   const [showP1, setShowP1] = useState(false)
   const [startP1Typewriter, setStartP1Typewriter] = useState(false)
   const [showP2, setShowP2] = useState(false)
@@ -28,6 +28,13 @@ function Intro({ hasAnimatedRef }) {
     hasAnimatedRef.current = true
   }
 
+  // Expose skipAnimation to parent via ref
+  React.useEffect(() => {
+    if (skipAnimationRef) {
+      skipAnimationRef.current = skipAnimation
+    }
+  }, [skipAnimationRef])
+
   useEffect(() => {
     if (hasAnimatedRef.current) {
       // Animation already played, show final state immediately - no transitions
@@ -51,7 +58,10 @@ function Intro({ hasAnimatedRef }) {
     if (showP1 && !hasAnimatedRef.current && !allDone) {
       // Show skip button right after h1 finishes
       setShowSkipButton(true)
-      // Delay the first paragraph typewriter to let skip finish typing
+      if (onSkipButtonStateChange) {
+        onSkipButtonStateChange(true)
+      }
+      // Delay the first paragraph typewriter
       const timer = setTimeout(() => {
         setStartP1Typewriter(true)
       }, 500)
@@ -59,17 +69,20 @@ function Intro({ hasAnimatedRef }) {
       return () => clearTimeout(timer)
     } else {
       setShowSkipButton(false)
+      if (onSkipButtonStateChange) {
+        onSkipButtonStateChange(false)
+      }
       if (hasAnimatedRef.current) {
         setStartP1Typewriter(true)
       }
     }
-  }, [showP1, hasAnimatedRef, allDone])
+  }, [showP1, hasAnimatedRef, allDone, onSkipButtonStateChange])
 
   return (
     <div 
       className={`intro ${(allDone || hasAnimatedRef.current) ? 'slide-up' : ''} ${hasAnimatedRef.current ? 'locked' : ''}`}
     >
-      <div style={{ position: 'relative', width: '100%' }}>
+      <div>
         <h1 className={hasAnimatedRef.current ? 'hidden' : ''}>
           {hasAnimatedRef.current ? (
             "What's up, I'm Liam"
@@ -92,29 +105,6 @@ function Intro({ hasAnimatedRef }) {
             />
           )}
         </h1>
-        {showSkipButton && (
-          <button 
-            className="skip-button"
-            onClick={skipAnimation}
-          >
-            {hasAnimatedRef.current ? (
-              "skip >"
-            ) : (
-              <Typewriter
-                onInit={(typewriter) => {
-                  typewriterRefs.current[4] = typewriter
-                  typewriter
-                    .typeString("skip >")
-                    .start()
-                }}
-                options={{
-                  delay: 20,
-                  cursor: '',
-                }}
-              />
-            )}
-          </button>
-        )}
       </div>
       {showP1 && (
         <p>

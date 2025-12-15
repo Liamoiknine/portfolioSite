@@ -6,6 +6,7 @@ import Footer from './Footer.jsx'
 import Intro from './Intro.jsx'
 import Projects from './Projects.jsx'
 import Experience from './Experience.jsx'
+import SkipButton from './SkipButton.jsx'
 import '../App.css'
 
 function Portfolio() {
@@ -14,6 +15,8 @@ function Portfolio() {
     return saved || 'intro'
   })
   const hasAnimatedRef = useRef(false)
+  const [showSkipButton, setShowSkipButton] = useState(false)
+  const skipAnimationRef = useRef(null)
 
   const mainCardRef = useRef(null)
   const vantaRef = useRef(null)
@@ -289,7 +292,20 @@ function Portfolio() {
           }}
         />
         <div style={{ position: 'relative', zIndex: 2, height: '100%' }}>
-          {activeSection === 'intro' && <Intro hasAnimatedRef={hasAnimatedRef} />}
+          {activeSection === 'intro' && (
+            <>
+              <Intro 
+                hasAnimatedRef={hasAnimatedRef} 
+                onSkipButtonStateChange={setShowSkipButton}
+                skipAnimationRef={skipAnimationRef}
+              />
+              <SkipButton 
+                showSkipButton={showSkipButton}
+                onSkip={() => skipAnimationRef.current?.()}
+                isHidden={hasAnimatedRef.current}
+              />
+            </>
+          )}
           {activeSection === 'projects' && <Projects />}
           {activeSection === 'experience' && <Experience />}
         </div>

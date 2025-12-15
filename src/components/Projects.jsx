@@ -60,7 +60,7 @@ function Projects() {
       tags: ["Active", "Research", "Private due to IRB guidelines"],
       date: "Fall 2025",
       category: "active",
-      link: ""
+      link: "https://github.com/Liamoiknine/Wolram-Cognative-Assesment-App"
     },
     {
       title: "Nag Me",

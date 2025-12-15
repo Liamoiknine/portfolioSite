@@ -53,12 +53,29 @@
     transition: none;
 }
 
+.skip-button-container {
+    position: absolute;
+    top: 3.75vh;
+    left: calc(32% + 16rem);
+    display: flex;
+    align-items: flex-end;
+    height: fit-content;
+    z-index: 3;
+    transform: translateY(-50%);
+}
+
+.skip-button-container .skip-button {
+    line-height: 1;
+}
+
 .intro h1 {
     text-align: left;
-    width: 100%;
+    width: auto;
+    flex: 1;
     font-weight: 200;
     opacity: 1;
     transition: opacity 0.8s ease;
+    margin: 0;
 }
 
 .intro.slide-up h1:not(.hidden) {
@@ -118,10 +135,34 @@
     font-weight: 300;
     padding: 0;
     margin: 0;
-    margin-top: 0.5rem;
     cursor: pointer;
     transition: opacity 0.8s ease, color 0.2s ease;
     font-family: inherit;
+    text-decoration: none;
+    white-space: nowrap;
+    opacity: 0;
+}
+
+.skip-button.fade-in {
+    animation: fadeIn 0.8s ease forwards;
+}
+
+.skip-button .skip-text {
+    font-weight: 600;
+}
+
+.skip-button.hidden {
+    opacity: 0;
+    animation: none;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
 }
 
 .skip-button:hover {
