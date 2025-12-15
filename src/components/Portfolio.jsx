@@ -107,7 +107,7 @@ function Portfolio() {
             scaleMobile: 1.00,
             speed: 3.0,
             color: colors[0],
-            backgroundColor: 0x0e0e25
+            backgroundColor: 0x000000
           })
 
           colorIntervalRef.current = setInterval(() => {

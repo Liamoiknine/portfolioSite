@@ -28,17 +28,6 @@
     box-shadow: 0 8px 32px rgba(91, 90, 90, 0.193);
 }
 
-.main-card::after {
-    content: '';
-    position: absolute;
-    bottom: -1px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 95%;
-    height: 1px;
-    background-color: white;
-}
-
 .intro {
     width: 32%;
     height: 100%;
